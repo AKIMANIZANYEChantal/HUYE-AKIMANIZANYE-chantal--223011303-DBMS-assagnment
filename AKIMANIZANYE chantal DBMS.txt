@@ -1,0 +1,181 @@
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 356
+Server version: 8.3.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+mysql> SHOW DATA BASE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATA BASE' at line 1
+mysql> SELECT*FROM NGOMA;
+ERROR 1046 (3D000): No database selected
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| employee           |
+| huye2              |
+| iliza              |
+| information_schema |
+| koica              |
+| mysql              |
+| performance_schema |
+| ruhande            |
+| sys                |
++--------------------+
+9 rows in set (0.01 sec)
+
+mysql> use ruhande database;
+Database changed
+mysql> select* from NGOMA;
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+------------------+
+| ID   | FNAME  | lname   | gender | province | district | sector   | cell     | village | teln | EMAIL            |
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+------------------+
+|    1 | ISA    | JEAN    | F      | NORTH    | MUSANZE  | BUSOGO   | SAHARA   | KABUYE  |  250 | jean@gmail.com   |
+|    2 | IRERE  | ANGE    | F      | WEST     | RUBAVU   | MUKAMIRA | RUNGU    | KANUMA  |  250 | irere@gmail.com  |
+|    3 | NEZA   | ERIC    | M      | EAST     | BUGESERA | MUBUGA   | REBERO   | NKOTSI  |  250 | neza@gmail.com   |
+|    4 | KEZA   | ALIANE  | F      | SOUTH    | GASABO   | NDERA    | MASAKA   | BIRYOGO |  250 | keza@gmail.com   |
+|    5 | GANZA  | MIKE    | M      | NORTH    | MUSANZE  | SHINGIRO | MUGARI   | TUZA    |  250 | ganza@gmail.com  |
+|    6 | KIZA   | LORA    | M      | WEST     | NYABIHU  | RWERU    | MUHURA   | GASOKO  |  250 | kiza@gmail.com   |
+|    7 | GWIZA  | LUANA   | M      | WEST     | RUTSIRO  | KIBUYE   | MAKOMA   | MBUGA   |  250 | gwiza@gmail.com  |
+|    8 | ineza  | LUAnge  | f      | NORTH    | MUSANZE  | KINIGI   | MAKOMA   | GISASA  |  250 | INEZA@GMAIL.COM  |
+|    9 | MWIZA  | GILBERT | M      | NORTH    | KIMONYI  | BUSHOZI  | MUHOZA   | GAKINGA |  250 | mwiza@GMAIL.COM  |
+|   10 | MAHORO | ANNE    | F      | EASTER   | KIREHE   | NKOTSI   | BURAMIRA | MUDENDE |  250 | mahoro@gmail.com |
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+------------------+
+10 rows in set (0.00 sec)
+
+mysql> alter table NGOMA DROP EMAIL;
+Query OK, 10 rows affected (0.09 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+
+| ID   | FNAME  | lname   | gender | province | district | sector   | cell     | village | teln |
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+
+|    1 | ISA    | JEAN    | F      | NORTH    | MUSANZE  | BUSOGO   | SAHARA   | KABUYE  |  250 |
+|    2 | IRERE  | ANGE    | F      | WEST     | RUBAVU   | MUKAMIRA | RUNGU    | KANUMA  |  250 |
+|    3 | NEZA   | ERIC    | M      | EAST     | BUGESERA | MUBUGA   | REBERO   | NKOTSI  |  250 |
+|    4 | KEZA   | ALIANE  | F      | SOUTH    | GASABO   | NDERA    | MASAKA   | BIRYOGO |  250 |
+|    5 | GANZA  | MIKE    | M      | NORTH    | MUSANZE  | SHINGIRO | MUGARI   | TUZA    |  250 |
+|    6 | KIZA   | LORA    | M      | WEST     | NYABIHU  | RWERU    | MUHURA   | GASOKO  |  250 |
+|    7 | GWIZA  | LUANA   | M      | WEST     | RUTSIRO  | KIBUYE   | MAKOMA   | MBUGA   |  250 |
+|    8 | ineza  | LUAnge  | f      | NORTH    | MUSANZE  | KINIGI   | MAKOMA   | GISASA  |  250 |
+|    9 | MWIZA  | GILBERT | M      | NORTH    | KIMONYI  | BUSHOZI  | MUHOZA   | GAKINGA |  250 |
+|   10 | MAHORO | ANNE    | F      | EASTER   | KIREHE   | NKOTSI   | BURAMIRA | MUDENDE |  250 |
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+
+10 rows in set (0.00 sec)
+
+mysql> ALTER TABLE NGOMA ADD COLUMN TELPHONE VARCHAR(18);
+Query OK, 10 rows affected (0.07 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT*FROM  NGOMA;
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+----------+
+| ID   | FNAME  | lname   | gender | province | district | sector   | cell     | village | teln | TELPHONE |
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+----------+
+|    1 | ISA    | JEAN    | F      | NORTH    | MUSANZE  | BUSOGO   | SAHARA   | KABUYE  |  250 | NULL     |
+|    2 | IRERE  | ANGE    | F      | WEST     | RUBAVU   | MUKAMIRA | RUNGU    | KANUMA  |  250 | NULL     |
+|    3 | NEZA   | ERIC    | M      | EAST     | BUGESERA | MUBUGA   | REBERO   | NKOTSI  |  250 | NULL     |
+|    4 | KEZA   | ALIANE  | F      | SOUTH    | GASABO   | NDERA    | MASAKA   | BIRYOGO |  250 | NULL     |
+|    5 | GANZA  | MIKE    | M      | NORTH    | MUSANZE  | SHINGIRO | MUGARI   | TUZA    |  250 | NULL     |
+|    6 | KIZA   | LORA    | M      | WEST     | NYABIHU  | RWERU    | MUHURA   | GASOKO  |  250 | NULL     |
+|    7 | GWIZA  | LUANA   | M      | WEST     | RUTSIRO  | KIBUYE   | MAKOMA   | MBUGA   |  250 | NULL     |
+|    8 | ineza  | LUAnge  | f      | NORTH    | MUSANZE  | KINIGI   | MAKOMA   | GISASA  |  250 | NULL     |
+|    9 | MWIZA  | GILBERT | M      | NORTH    | KIMONYI  | BUSHOZI  | MUHOZA   | GAKINGA |  250 | NULL     |
+|   10 | MAHORO | ANNE    | F      | EASTER   | KIREHE   | NKOTSI   | BURAMIRA | MUDENDE |  250 | NULL     |
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+----------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET TELPHONE=078120000 WHERE  GENDER='F';
+Query OK, 5 rows affected (0.00 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> SELECT* FROM NGOMA;
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+----------+
+| ID   | FNAME  | lname   | gender | province | district | sector   | cell     | village | teln | TELPHONE |
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+----------+
+|    1 | ISA    | JEAN    | F      | NORTH    | MUSANZE  | BUSOGO   | SAHARA   | KABUYE  |  250 | 78120000 |
+|    2 | IRERE  | ANGE    | F      | WEST     | RUBAVU   | MUKAMIRA | RUNGU    | KANUMA  |  250 | 78120000 |
+|    3 | NEZA   | ERIC    | M      | EAST     | BUGESERA | MUBUGA   | REBERO   | NKOTSI  |  250 | NULL     |
+|    4 | KEZA   | ALIANE  | F      | SOUTH    | GASABO   | NDERA    | MASAKA   | BIRYOGO |  250 | 78120000 |
+|    5 | GANZA  | MIKE    | M      | NORTH    | MUSANZE  | SHINGIRO | MUGARI   | TUZA    |  250 | NULL     |
+|    6 | KIZA   | LORA    | M      | WEST     | NYABIHU  | RWERU    | MUHURA   | GASOKO  |  250 | NULL     |
+|    7 | GWIZA  | LUANA   | M      | WEST     | RUTSIRO  | KIBUYE   | MAKOMA   | MBUGA   |  250 | NULL     |
+|    8 | ineza  | LUAnge  | f      | NORTH    | MUSANZE  | KINIGI   | MAKOMA   | GISASA  |  250 | 78120000 |
+|    9 | MWIZA  | GILBERT | M      | NORTH    | KIMONYI  | BUSHOZI  | MUHOZA   | GAKINGA |  250 | NULL     |
+|   10 | MAHORO | ANNE    | F      | EASTER   | KIREHE   | NKOTSI   | BURAMIRA | MUDENDE |  250 | 78120000 |
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+----------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE TABLE NGOMA SET TELEPHONE='079809876' WHERE GENDER='M';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'TABLE NGOMA SET TELEPHONE='079809876' WHERE GENDER='M'' at line 1
+mysql> UPDATE  NGOMA SET TELEPHONE=079809876 WHERE GENDER='M';
+ERROR 1054 (42S22): Unknown column 'TELEPHONE' in 'field list'
+mysql> UPDATE NGOMA SET TELPHONE=0799120000 WHERE  GENDER='M';
+Query OK, 5 rows affected (0.00 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> SELECT*FROM NGOMA;
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+-----------+
+| ID   | FNAME  | lname   | gender | province | district | sector   | cell     | village | teln | TELPHONE  |
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+-----------+
+|    1 | ISA    | JEAN    | F      | NORTH    | MUSANZE  | BUSOGO   | SAHARA   | KABUYE  |  250 | 78120000  |
+|    2 | IRERE  | ANGE    | F      | WEST     | RUBAVU   | MUKAMIRA | RUNGU    | KANUMA  |  250 | 78120000  |
+|    3 | NEZA   | ERIC    | M      | EAST     | BUGESERA | MUBUGA   | REBERO   | NKOTSI  |  250 | 799120000 |
+|    4 | KEZA   | ALIANE  | F      | SOUTH    | GASABO   | NDERA    | MASAKA   | BIRYOGO |  250 | 78120000  |
+|    5 | GANZA  | MIKE    | M      | NORTH    | MUSANZE  | SHINGIRO | MUGARI   | TUZA    |  250 | 799120000 |
+|    6 | KIZA   | LORA    | M      | WEST     | NYABIHU  | RWERU    | MUHURA   | GASOKO  |  250 | 799120000 |
+|    7 | GWIZA  | LUANA   | M      | WEST     | RUTSIRO  | KIBUYE   | MAKOMA   | MBUGA   |  250 | 799120000 |
+|    8 | ineza  | LUAnge  | f      | NORTH    | MUSANZE  | KINIGI   | MAKOMA   | GISASA  |  250 | 78120000  |
+|    9 | MWIZA  | GILBERT | M      | NORTH    | KIMONYI  | BUSHOZI  | MUHOZA   | GAKINGA |  250 | 799120000 |
+|   10 | MAHORO | ANNE    | F      | EASTER   | KIREHE   | NKOTSI   | BURAMIRA | MUDENDE |  250 | 78120000  |
++------+--------+---------+--------+----------+----------+----------+----------+---------+------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT ID,FNAME,lname,gender,province from NGOMA;
++------+--------+---------+--------+----------+
+| ID   | FNAME  | lname   | gender | province |
++------+--------+---------+--------+----------+
+|    1 | ISA    | JEAN    | F      | NORTH    |
+|    2 | IRERE  | ANGE    | F      | WEST     |
+|    3 | NEZA   | ERIC    | M      | EAST     |
+|    4 | KEZA   | ALIANE  | F      | SOUTH    |
+|    5 | GANZA  | MIKE    | M      | NORTH    |
+|    6 | KIZA   | LORA    | M      | WEST     |
+|    7 | GWIZA  | LUANA   | M      | WEST     |
+|    8 | ineza  | LUAnge  | f      | NORTH    |
+|    9 | MWIZA  | GILBERT | M      | NORTH    |
+|   10 | MAHORO | ANNE    | F      | EASTER   |
++------+--------+---------+--------+----------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM NGOMA WHERE FNAME='ISA' ANDm
+    -> SELECT * FROM NGOMA WHERE FNAME='ISA' AND province='NORTH';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDm
+SELECT * FROM NGOMA WHERE FNAME='ISA' AND province='NORTH'' at line 1
+mysql> SELECT * FROM NGOMA WHERE FNAME='ISA' AND PROVINCE='NORTH';
++------+-------+-------+--------+----------+----------+--------+--------+---------+------+----------+
+| ID   | FNAME | lname | gender | province | district | sector | cell   | village | teln | TELPHONE |
++------+-------+-------+--------+----------+----------+--------+--------+---------+------+----------+
+|    1 | ISA   | JEAN  | F      | NORTH    | MUSANZE  | BUSOGO | SAHARA | KABUYE  |  250 | 78120000 |
++------+-------+-------+--------+----------+----------+--------+--------+---------+------+----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM NGOMA WHERE FNAME='ISA' OR PROVINCE='WEST';
++------+-------+-------+--------+----------+----------+----------+--------+---------+------+-----------+
+| ID   | FNAME | lname | gender | province | district | sector   | cell   | village | teln | TELPHONE  |
++------+-------+-------+--------+----------+----------+----------+--------+---------+------+-----------+
+|    1 | ISA   | JEAN  | F      | NORTH    | MUSANZE  | BUSOGO   | SAHARA | KABUYE  |  250 | 78120000  |
+|    2 | IRERE | ANGE  | F      | WEST     | RUBAVU   | MUKAMIRA | RUNGU  | KANUMA  |  250 | 78120000  |
+|    6 | KIZA  | LORA  | M      | WEST     | NYABIHU  | RWERU    | MUHURA | GASOKO  |  250 | 799120000 |
+|    7 | GWIZA | LUANA | M      | WEST     | RUTSIRO  | KIBUYE   | MAKOMA | MBUGA   |  250 | 799120000 |
++------+-------+-------+--------+----------+----------+----------+--------+---------+------+-----------+
+4 rows in set (0.00 sec)
+
+mysql>
